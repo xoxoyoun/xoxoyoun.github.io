@@ -1,7 +1,5 @@
-/***********************
- * app.js - client code
- * works for BOTH index.html and thread.html
- ***********************/
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -239,5 +237,6 @@ function escapeHtml(s){
 function nl2br(text){
   return text.replace(/\n/g, '<br>');
 }
+
 
 
