@@ -1,1 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mini Imageboard — Thread</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Mini Imageboard</a></h1>
+  </header>
+
+  <main class="container">
+    <section id="thread-head" class="card">
+      <h2 id="thread-subject">Thread</h2>
+      <div id="thread-meta" class="muted"></div>
+    </section>
+
+    <section id="posts" class="card">
+      <h3>Posts</h3>
+      <div id="posts-list">Loading…</div>
+    </section>
+
+    <section id="reply" class="card">
+      <h3>Reply</h3>
+      <form id="reply-form">
+        <label> Name: <input id="reply-name" type="text" maxlength="64" placeholder="Anonymous"></label>
+        <label> Comment:
+          <textarea id="reply-body" required maxlength="2000" placeholder="Reply here..."></textarea>
+        </label>
+        <label> Image: <input id="reply-image" type="file" accept="image/*"></label>
+        <div class="form-row">
+          <button id="reply-submit" type="submit">Post Reply</button>
+          <small id="reply-status" class="muted"></small>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="muted">Static demo — using Firebase Firestore + Storage.</footer>
+
+  <!-- Firebase (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
 
