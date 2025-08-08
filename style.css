@@ -1,195 +1,117 @@
-/* --- Base / Layout --- */
-:root {
-  --bg: #efeedd;
-  --card: #fff;
-  --muted: #666;
-  --link: #3a6b35;
-  --maxw: 980px;
-  --thread-gap: 6px;
-  --small: 0.85rem;
-  --radius: 6px;
-  --border: 1px solid #d9d7cc;
-  --mono: "Lucida Console", "Courier New", monospace;
-  --ui-font: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+/* ====== 4chan Style Theme ====== */
+
+/* Background + text */
+body {
+    background-color: #f0e0d6;
+    color: #800000;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: #111;
-  font-family: var(--ui-font);
-  line-height: 1.35;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Main container */
+/* Center content */
 .container {
-  width: 100%;
-  max-width: var(--maxw);
-  margin: auto;
-  padding: 1rem;
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 8px;
 }
 
-/* Header */
-header {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 0.75rem;
+/* Thread wrapper */
+.thread {
+    margin-bottom: 20px;
 }
 
-header h1 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
+/* Post block */
+.post {
+    background-color: #f0e0d6;
+    border: 1px solid #d9bfb7;
+    padding: 4px;
+    margin: 4px 0;
 }
 
-header a {
-  color: inherit;
-  text-decoration: none;
+/* Post info (username/date/No.) */
+.post-meta {
+    font-size: 12px;
+    color: #117743;
+    margin-bottom: 2px;
+    font-weight: bold;
 }
 
-/* Cards */
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 0.8rem;
-  margin-bottom: 0.9rem;
-  border: var(--border);
+.username {
+    font-weight: bold;
 }
 
-/* Form controls */
-label {
-  display: block;
-  margin: 0.35rem 0;
-  font-size: 0.95rem;
+/* Post message text */
+.post-body {
+    font-size: 13px;
+    color: #000;
+    white-space: pre-wrap;
+}
+
+/* Images inside posts */
+.post img {
+    display: block;
+    max-width: 250px;
+    height: auto;
+    margin-top: 4px;
+    border: 1px solid #d9bfb7;
+}
+
+/* Thread title (OP subject) */
+.thread-subject {
+    font-weight: bold;
+    font-size: 14px;
+    color: #cc1105;
+    margin-bottom: 4px;
+}
+
+/* Reply form */
+form {
+    background-color: #f0e0d6;
+    border: 1px solid #d9bfb7;
+    padding: 6px;
+    margin-bottom: 12px;
+}
+
+form label {
+    font-size: 12px;
 }
 
 input[type="text"], textarea, input[type="file"] {
-  width: 100%;
-  padding: 0.45rem;
-  border: 1px solid #e0dfd3;
-  border-radius: 4px;
-  font: inherit;
-  background: #fff;
-}
-
-textarea {
-  min-height: 120px;
-  resize: vertical;
+    font-size: 12px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    padding: 2px;
+    margin-bottom: 4px;
 }
 
 button {
-  background: var(--link);
-  color: #fff;
-  border: none;
-  padding: 0.45rem 0.7rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
+    font-size: 12px;
+    padding: 3px 8px;
+    background-color: #eee;
+    border: 1px solid #aaa;
+    cursor: pointer;
 }
 
-/* Thread list */
-.thread {
-  display: flex;
-  gap: 0.8rem;
-  align-items: flex-start;
-  padding: 0.6rem 0.8rem;
-  margin-bottom: var(--thread-gap);
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.03);
-  background: #fff;
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
+button:hover {
+    background-color: #ddd;
 }
 
-.thread::before {
-  content: "";
-  display: block;
-  width: 6px;
-  border-radius: 4px;
-  flex: 0 0 6px;
-  background: var(--link);
-}
-
-/* Thread hover */
-.thread:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-/* Post style */
-.post {
-  border: 1px solid #e6e4d7;
-  padding: 0.6rem;
-  border-radius: 6px;
-  margin-bottom: 0.6rem;
-  background: #fff;
-}
-
-.post-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-  word-break: break-word;
-}
-
-.post-body {
-  font-size: 0.98rem;
-  white-space: pre-wrap;
-}
-
-.post img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #e9e8de;
-}
-
-/* Color cycling */
-.thread:nth-child(8n+1)::before { background: #2f6f2f; }
-.thread:nth-child(8n+2)::before { background: #2a5f87; }
-.thread:nth-child(8n+3)::before { background: #7a3a9b; }
-.thread:nth-child(8n+4)::before { background: #b24a2d; }
-.thread:nth-child(8n+5)::before { background: #5d8a39; }
-.thread:nth-child(8n+6)::before { background: #2f9aa3; }
-.thread:nth-child(8n+7)::before { background: #c48f00; }
-.thread:nth-child(8n+8)::before { background: #8b3b6b; }
-
-/* --- MOBILE FIXES --- */
-@media (max-width: 720px) {
-  body {
-    padding: 0.5rem;
-    font-size: 0.95rem;
-  }
-  .container {
-    padding: 0;
-  }
-  .thread {
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.5rem;
-  }
-  .thread h3 {
-    font-size: 1rem;
-  }
-  .post {
-    padding: 0.5rem;
-    font-size: 0.95rem;
-  }
-  button {
-    width: 100%;
-    padding: 0.6rem;
-    font-size: 1rem;
-  }
-  input, textarea {
-    font-size: 1rem;
-  }
+/* ===== MOBILE FRIENDLY ===== */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 4px;
+    }
+    .post img {
+        max-width: 100%;
+    }
+    input[type="text"], textarea, button {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
