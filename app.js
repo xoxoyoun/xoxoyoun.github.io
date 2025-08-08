@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAGZXbY2mUnBMfqfJWDDnYNPRfChL38JG0",
   authDomain: "imageboard-web-a7a75.firebaseapp.com",
@@ -11,6 +10,10 @@ const firebaseConfig = {
   appId: "1:270447305738:web:dc4ff28bb2b5c925b66bf3",
   measurementId: "G-JCSX5M5S5D"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const firebaseConfig = {
   apiKey: "REPLACE_ME",
@@ -237,6 +240,7 @@ function escapeHtml(s){
 function nl2br(text){
   return text.replace(/\n/g, '<br>');
 }
+
 
 
 
