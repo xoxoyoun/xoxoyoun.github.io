@@ -1,193 +1,81 @@
-/* imageboard — 4chan-like compact style + CSS-only thread color cycling */
-
-/* --- base / layout --- */
-:root{
-  --bg: #efeedd;        /* off-white/beige background like many imageboards */
-  --card: #fff;
-  --muted: #666;
-  --link: #3a6b35;      /* default green-ish link color (used for active accent fallback) */
-  --maxw: 980px;
-  --thread-gap: 6px;
-  --small: 0.85rem;
-  --radius: 6px;
-  --border: 1px solid #d9d7cc;
-  --mono: "Lucida Console", "Courier New", monospace;
-  --ui-font: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+/* ====== BASE ====== */
+:root {
+  --bg: #ffffee;
+  --post-bg: #f0e0d6;
+  --border-color: #d9bfb7;
+  --text-color: #000;
+  --link-color: #0000ee;
+  --font-main: "Arial", sans-serif;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  padding:1rem;
-  display:flex;
-  justify-content:center;
-  background:var(--bg);
-  color:#111;
-  font-family:var(--ui-font);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.35;
+body {
+  margin: 0;
+  padding: 8px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--bg);
 }
 
-/* main container */
-.container{
-  width:100%;
-  max-width:var(--maxw);
-  padding:0 1rem;
+/* ====== THREAD CONTAINER ====== */
+.thread {
+  margin-bottom: 20px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--post-bg);
 }
 
-/* header */
-header{display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem}
-header h1{
-  margin:0;
-  font-size:1.05rem;
-  font-weight:600;
-  letter-spacing:0.2px;
-}
-header a{color:inherit;text-decoration:none}
-
-/* cards */
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:0.8rem;
-  margin-bottom:0.9rem;
-  box-shadow:0 1px 0 rgba(0,0,0,0.03);
-  border:var(--border);
+/* ====== POST STYLE ====== */
+.post {
+  margin: 6px 0;
+  padding: 6px;
+  border: 1px solid var(--border-color);
+  background: #fdf6e3;
 }
 
-/* form controls (compact) */
-label{display:block;margin:0.35rem 0;font-size:0.95rem}
-input[type="text"], textarea, input[type="file"]{
-  width:100%;
-  padding:0.45rem 0.5rem;
-  border:1px solid #e0dfd3;
-  border-radius:4px;
-  font:inherit;
-  background:#fff;
-}
-textarea{min-height:120px;resize:vertical;font-size:0.95rem}
-input[type="file"]{padding:0.25rem 0}
-button{
-  background:var(--link);
-  color:#fff;
-  border:0;
-  padding:0.45rem 0.7rem;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:600;
-  font-size:0.95rem;
-}
-button[disabled]{opacity:0.65;cursor:default}
-
-/* thread list area */
-#threads-list{display:block}
-.thread{
-  display:flex;
-  gap:0.8rem;
-  align-items:flex-start;
-  padding:0.6rem 0.8rem;
-  margin-bottom:var(--thread-gap);
-  border-radius:6px;
-  background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.005));
-  border:1px solid rgba(0,0,0,0.03);
-  transition:transform .08s ease, box-shadow .08s ease;
+.post .post-meta {
+  font-size: 12px;
+  margin-bottom: 4px;
 }
 
-/* small left accent bar (color per-thread) */
-.thread::before{
-  content:"";
-  display:block;
-  width:8px;
-  border-radius:4px;
-  flex:0 0 8px;
-  margin-right:0.6rem;
-  background:var(--link); /* fallback */
+.post .username {
+  font-weight: bold;
 }
 
-/* thread content */
-.thread-head{
-  flex:1;
-}
-.thread h3{
-  margin:0 0 3px 0;
-  font-size:1rem;
-  line-height:1.15;
-}
-.thread h3 a{
-  color:var(--link);
-  text-decoration:none;
-  font-weight:600;
-}
-.thread .meta{
-  font-size:var(--small);
-  color:var(--muted);
-}
+/* ====== USERNAME COLOR CYCLE ====== */
+/* Assign classes to usernames like u1, u2, u3… */
 
-/* hover/anims */
-.thread:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+.username.u1 { color: #117743; } /* deep green */
+.username.u2 { color: #2288aa; } /* teal */
+.username.u3 { color: #aa22aa; } /* purple */
+.username.u4 { color: #aa0000; } /* red */
+.username.u5 { color: #996633; } /* brown */
+.username.u6 { color: #0000aa; } /* blue */
+.username.u7 { color: #ff6600; } /* orange */
+.username.u8 { color: #770077; } /* violet */
+
+/* Repeat if more IDs needed */
+.username.u9  { color: #007777; }
+.username.u10 { color: #557700; }
+
+/* ====== QUOTES ====== */
+.quote {
+  color: #789922;
 }
 
-/* single thread page posts (compact post look) */
-.post{
-  border:1px solid #e6e4d7;
-  padding:0.6rem;
-  border-radius:6px;
-  margin-bottom:0.6rem;
-  background:#fff;
+/* ====== LINKS ====== */
+a {
+  color: var(--link-color);
+  text-decoration: none;
 }
-.post .post-meta{
-  font-size:0.85rem;
-  color:var(--muted);
-  margin-bottom:0.35rem;
-}
-.post .post-body{
-  font-size:0.98rem;
-  white-space:pre-wrap;
-}
-.post img{max-width:420px;height:auto;margin-top:0.5rem;border-radius:4px;border:1px solid #e9e8de}
-
-/* small helpers */
-.muted{color:var(--muted)}
-.small-link{color:var(--link);text-decoration:none;font-size:0.95rem}
-
-/* --- color cycling for threads (pure CSS) ---
-   adjust the palette, cycle length = 8 (change nth selectors if you change count)
-*/
-.thread:nth-child(8n+1)::before { background: #2f6f2f; } /* deep green */
-.thread:nth-child(8n+1) h3 a { color: #2f6f2f; }
-
-.thread:nth-child(8n+2)::before { background: #2a5f87; } /* teal-blue */
-.thread:nth-child(8n+2) h3 a { color: #2a5f87; }
-
-.thread:nth-child(8n+3)::before { background: #7a3a9b; } /* purple */
-.thread:nth-child(8n+3) h3 a { color: #7a3a9b; }
-
-.thread:nth-child(8n+4)::before { background: #b24a2d; } /* burnt orange */
-.thread:nth-child(8n+4) h3 a { color: #b24a2d; }
-
-.thread:nth-child(8n+5)::before { background: #5d8a39; } /* olive/green */
-.thread:nth-child(8n+5) h3 a { color: #5d8a39; }
-
-.thread:nth-child(8n+6)::before { background: #2f9aa3; } /* sea */
-.thread:nth-child(8n+6) h3 a { color: #2f9aa3; }
-
-.thread:nth-child(8n+7)::before { background: #c48f00; } /* mustard */
-.thread:nth-child(8n+7) h3 a { color: #c48f00; }
-
-.thread:nth-child(8n+8)::before { background: #8b3b6b; } /* rose */
-.thread:nth-child(8n+8) h3 a { color: #8b3b6b; }
-
-/* responsive tweaks */
-@media (max-width:720px){
-  .container{padding:0 0.6rem}
-  .post img{max-width:100%}
-  .thread{padding:0.5rem}
-  .thread::before{width:6px;flex:0 0 6px}
+a:hover {
+  text-decoration: underline;
 }
 
-/* optional: make subjects monospaced if you prefer old-school style */
-/* .thread h3 a { font-family: var(--mono); font-weight:600; } */
+/* ====== IMAGE ====== */
+.post img {
+  max-width: 250px;
+  display: block;
+  margin-top: 5px;
+  border: 1px solid var(--border-color);
+}
