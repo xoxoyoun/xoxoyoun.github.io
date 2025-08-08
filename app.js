@@ -1,6 +1,4 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAGZXbY2mUnBMfqfJWDDnYNPRfChL38JG0",
   authDomain: "imageboard-web-a7a75.firebaseapp.com",
@@ -9,19 +7,6 @@ const firebaseConfig = {
   messagingSenderId: "270447305738",
   appId: "1:270447305738:web:dc4ff28bb2b5c925b66bf3",
   measurementId: "G-JCSX5M5S5D"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-const firebaseConfig = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME"
 };
 
 /* ----- Initialize Firebase (compat libs used in HTML) ----- */
@@ -240,6 +225,7 @@ function escapeHtml(s){
 function nl2br(text){
   return text.replace(/\n/g, '<br>');
 }
+
 
 
 
