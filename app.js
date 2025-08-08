@@ -5,8 +5,8 @@ const firebaseConfig = {
   projectId: "imageboard-web-a7a75",
   storageBucket: "imageboard-web-a7a75.firebasestorage.app",
   messagingSenderId: "270447305738",
-  appId: "1:270447305738:web:dc4ff28bb2b5c925b66bf3",
-  measurementId: "G-JCSX5M5S5D"
+  appId: "1:270447305738:web:dbb6ecfef81d5f2db66bf3",
+  measurementId: "G-DRPGXLTNDW"
 };
 
 /* ----- Initialize Firebase (compat libs used in HTML) ----- */
@@ -225,6 +225,7 @@ function escapeHtml(s){
 function nl2br(text){
   return text.replace(/\n/g, '<br>');
 }
+
 
 
 
