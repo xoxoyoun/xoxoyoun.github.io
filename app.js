@@ -9,6 +9,19 @@ const firebaseConfig = {
   measurementId: "G-DRPGXLTNDW"
 };
 
+
+
+postElement.innerHTML = `
+  <div class="post-meta">
+    <span class="username uid${userColorId}">${username}</span>
+    <span class="user-id">ID:${userIdCode}</span>
+    | ${date} | No.${postNumber}
+  </div>
+  <div class="post-body">${message}</div>
+`;
+
+
+
 /* ----- Initialize Firebase (compat libs used in HTML) ----- */
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -225,6 +238,8 @@ function escapeHtml(s){
 function nl2br(text){
   return text.replace(/\n/g, '<br>');
 }
+
+
 
 
 
