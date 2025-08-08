@@ -1,216 +1,28 @@
-/* === Base / Layout === */
-:root {
-  --bg: #f6f5f0;
-  --card: #fff;
-  --muted: #666;
-  --link: #3a6b35;
-  --maxw: 980px;
-  --thread-gap: 8px;
-  --small: 0.85rem;
-  --radius: 8px;
-  --border: 1px solid #ddd8c4;
-  --mono: "Lucida Console", "Courier New", monospace;
-  --ui-font: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
-  --shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+:root{
+  --bg:#f8f9fb; --card:#fff; --muted:#666; --accent:#0b5cff;
+  --maxw:920px;
 }
-
-* {
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  background: var(--bg);
-  color: #222;
-  font-family: var(--ui-font);
-  line-height: 1.45;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: var(--maxw);
-  padding: 0 1rem;
-}
-
-/* Header */
-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-header h1 {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-header a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Card style */
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 0.9rem;
-  margin-bottom: 1rem;
-  box-shadow: var(--shadow);
-  border: var(--border);
-}
-
-/* Inputs & buttons */
-label {
-  display: block;
-  margin: 0.35rem 0;
-  font-size: 0.95rem;
-}
-input[type="text"], textarea, input[type="file"] {
-  width: 100%;
-  padding: 0.45rem 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font: inherit;
-  background: #fff;
-}
-textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-button {
-  background: var(--link);
-  color: #fff;
-  border: 0;
-  padding: 0.45rem 0.8rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background 0.2s ease;
-}
-button:hover {
-  background: #2e5a2c;
-}
-button[disabled] {
-  opacity: 0.65;
-  cursor: default;
-}
-
-/* Thread list */
-#threads-list {
-  display: block;
-}
-
-/* Thread container */
-.thread {
-  display: flex;
-  gap: 0.9rem;
-  padding: 0.8rem;
-  margin-bottom: var(--thread-gap);
-  border-radius: var(--radius);
-  background: #fff;
-  border: var(--border);
-  box-shadow: var(--shadow);
-  transition: transform 0.08s ease, box-shadow 0.1s ease;
-}
-.thread:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* Accent bar */
-.thread::before {
-  content: "";
-  display: block;
-  width: 8px;
-  border-radius: 4px;
-  flex: 0 0 8px;
-  background: var(--link);
-}
-
-/* Thread content layout */
-.thread-head {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.thread-meta {
-  font-size: var(--small);
-  color: var(--muted);
-  margin-bottom: 0.3rem;
-}
-.thread h3 {
-  margin: 0 0 4px 0;
-  font-size: 1.05rem;
-  line-height: 1.2;
-}
-.thread h3 a {
-  color: var(--link);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Posts */
-.post {
-  border: var(--border);
-  padding: 0.7rem;
-  border-radius: var(--radius);
-  margin-bottom: 0.6rem;
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-.post .post-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-}
-.post .post-body {
-  font-size: 0.98rem;
-  white-space: pre-wrap;
-}
-.post img {
-  max-width: 420px;
-  height: auto;
-  margin-top: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #e9e8de;
-}
-
-/* Color cycling (8 colors) */
-.thread:nth-child(8n+1)::before { background: #2f6f2f; }
-.thread:nth-child(8n+1) h3 a { color: #2f6f2f; }
-
-.thread:nth-child(8n+2)::before { background: #2a5f87; }
-.thread:nth-child(8n+2) h3 a { color: #2a5f87; }
-
-.thread:nth-child(8n+3)::before { background: #7a3a9b; }
-.thread:nth-child(8n+3) h3 a { color: #7a3a9b; }
-
-.thread:nth-child(8n+4)::before { background: #b24a2d; }
-.thread:nth-child(8n+4) h3 a { color: #b24a2d; }
-
-.thread:nth-child(8n+5)::before { background: #5d8a39; }
-.thread:nth-child(8n+5) h3 a { color: #5d8a39; }
-
-.thread:nth-child(8n+6)::before { background: #2f9aa3; }
-.thread:nth-child(8n+6) h3 a { color: #2f9aa3; }
-
-.thread:nth-child(8n+7)::before { background: #c48f00; }
-.thread:nth-child(8n+7) h3 a { color: #c48f00; }
-
-.thread:nth-child(8n+8)::before { background: #8b3b6b; }
-.thread:nth-child(8n+8) h3 a { color: #8b3b6b; }
-
-/* Responsive */
-@media (max-width: 720px) {
-  .container { padding: 0 0.6rem; }
-  .thread { flex-direction: column; gap: 0.5rem; }
-  .thread::before { width: 100%; height: 4px; border-radius: 4px; }
-  .post img { max-width: 100%; }
-}
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Roboto,Arial; background:var(--bg); color:#111; margin:0; padding:1rem; display:flex; flex-direction:column; align-items:center;}
+.container{width:100%; max-width:var(--maxw); padding:0 1rem}
+header{width:100%; max-width:var(--maxw); margin-bottom:1rem}
+header h1{margin:0; font-size:1.4rem}
+header a{color:inherit; text-decoration:none}
+.card{background:var(--card); border-radius:8px; padding:1rem; margin-bottom:1rem; box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+label{display:block; margin:0.5rem 0}
+input[type="text"], textarea{width:100%; padding:0.5rem; border:1px solid #ddd; border-radius:4px; font:inherit}
+input[type="file"]{margin-top:0.25rem}
+textarea{min-height:120px; resize:vertical}
+button{background:var(--accent); color:#fff; border:none; padding:0.5rem 0.9rem; border-radius:6px; cursor:pointer}
+button[disabled]{opacity:0.6; cursor:default}
+.form-row{display:flex; align-items:center; gap:1rem; margin-top:0.5rem}
+.muted{color:var(--muted); font-size:0.9rem}
+.thread-item{padding:0.6rem 0; border-bottom:1px solid #f0f0f0; display:flex; justify-content:space-between; align-items:center}
+.thread-item h3{margin:0; font-size:1rem}
+.thread-meta{font-size:0.85rem; color:var(--muted)}
+.post{border:1px solid #eee; padding:0.6rem; border-radius:6px; margin-bottom:0.7rem}
+.post .post-meta{font-size:0.85rem; color:var(--muted); margin-bottom:0.3rem}
+.post img{max-width:320px; height:auto; display:block; margin-top:0.5rem; border-radius:4px}
+a.small-link{font-size:0.9rem; color:var(--accent); text-decoration:none}
+footer{margin-top:1rem; color:var(--muted); font-size:0.9rem}
+@media (max-width:600px){ .post img{max-width:100%} }
