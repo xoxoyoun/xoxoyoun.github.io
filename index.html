@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PixelPlace</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">PP</div>
+      <div class="title">
+        <h1>PixelPlace</h1>
+        <div class="muted">Collaborative pixel canvas</div>
+      </div>
+
+      <div class="header-actions" id="auth-area">
+        <!-- Filled by JS -->
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="left glass-strong" id="left-col">
+        <div class="palette" id="palette-col"></div>
+        <div class="token-wrap" id="token-wrap"></div>
+      </aside>
+
+      <section class="canvas-area">
+        <div class="controls glass">
+          <input id="colorPicker" type="color" value="#FF0000" title="Choose any color">
+          <div id="savedPal" class="saved-pal"></div>
+          <button id="saveColor" class="btn">Save</button>
+
+          <div style="margin-left:auto;display:flex;gap:8px">
+            <button id="zoomIn" class="btn">＋</button>
+            <button id="zoomOut" class="btn">－</button>
+            <button id="fit" class="btn">Fit</button>
+          </div>
+        </div>
+
+        <div id="viewport" class="viewport glass-strong">
+          <canvas id="canvas"></canvas>
+          <div class="canvas-floating-controls">
+            <div id="placeHint" class="small glass">Click to place</div>
+            <div id="panToggle" class="small glass">Pan</div>
+          </div>
+        </div>
+
+        <div class="tip muted">Drag to pan • wheel/pinch to zoom • login required to place</div>
+      </section>
+
+      <aside class="right" id="right-col">
+        <div class="glass-strong leaderboard">
+          <div class="header-row"><strong>Leaderboard</strong><span class="muted">Realtime</span></div>
+          <div id="leaderboard"></div>
+        </div>
+
+        <div class="glass chat">
+          <div class="header-row"><strong>Chat</strong></div>
+          <div id="messages" class="messages"></div>
+          <div class="chat-compose">
+            <input id="chatInput" placeholder="Say something..." />
+            <button id="sendChat" class="btn">Send</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer muted">Use with Supabase (see README). Start tokens: 100. Cooldown/refill: 1 token per 10s.</footer>
+  </div>
+
+  <!-- Environment Variables -->
+  <script>
+    // For GitHub Pages deployment, set your Supabase credentials directly here
+    // Replace these with your actual Supabase project values
+    window.SUPABASE_URL = 'https://YOUR_SUPABASE_URL.supabase.co';
+    window.SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+  </script>
+  
+  <!-- Supabase JS (ESM) -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
